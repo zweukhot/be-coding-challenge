@@ -5,9 +5,9 @@
 - We expect you to leverage creative license where it makes sense. If you'd like to change the project structure, pull in libraries, or make assumptions about the requirements we openly encourage you to do so. All that we ask is that you are prepared to talk about your choices in future interviews. 
 
 ### Challenge
-For this challenge you will be implementing a Family tree API.
+For this challenge you will be implementing a family tree API.
 
-The API should be capable of keeping track of People and the connections between them.
+The API should be capable of keeping track of people and the connections between them.
 
 While you have full control to model the entities as you see fit you should keep the following guidelines in mind.
 
