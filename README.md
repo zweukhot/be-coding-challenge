@@ -41,7 +41,7 @@ pipenv install
 
 Once dependencies are installed you can run the service with
 ```bash
-pipenv run python server.py
+pipenv run python manage.py
 ```
 or
 ```bash
