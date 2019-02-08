@@ -11,7 +11,7 @@ The API should be capable of keeping track of people and the connections between
 
 While you have full control to model the entities as you see fit you should keep the following guidelines in mind.
 
-We should track at least the following information about people and data should be editable to account for normal scenarios that come up in real life.
+Details about a person and their relationships should be editable. At a minimum you should use the following traits to describe a person: 
 - First name
 - Last name
 - Phone number
