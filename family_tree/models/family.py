@@ -15,7 +15,8 @@ class Person(Base):
 
 
 class ParentChild(Base):
-    __tablename__ = 'parents'
+    __tablename__ = 'parentchild'
+    id = Column(Integer, primary_key=True)
     parent = Column(Integer, primary_key=True)
     child = Column(Integer, primary_key=True)
 
