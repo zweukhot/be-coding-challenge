@@ -10,6 +10,11 @@ def health_check():
     return jsonify(True)
 
 
+@blueprint.route('/search_person/<last_name>/<first_name>', methods=['GET'])
+def search_person(last_name, first_name):
+    return jsonify(res.get_person(last_name, first_name))
+
+
 @blueprint.route('/<person_id>/get_siblings', methods=['GET'])
 def get_siblings(person_id):
     return jsonify(res.get_siblings(person_id))
@@ -18,6 +23,7 @@ def get_siblings(person_id):
 @blueprint.route('/<person_id>/get_parents', methods=['GET'])
 def get_parents(person_id):
     return jsonify(res.get_parents(person_id))
+
 
 @blueprint.route('/<person_id>/get_children', methods=['GET'])
 def get_children(person_id):
