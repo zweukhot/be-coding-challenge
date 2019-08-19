@@ -1,7 +1,7 @@
 from family_tree.models.family import Person, ParentChild
 from sqlalchemy import create_engine
 try:
-    import family_tree.config
+    from family_tree import config
 except ModuleNotFoundError:
     print("ERROR: Please create a family_tree/config.py file with the USER and PASSWORD to use for database")
     exit()
