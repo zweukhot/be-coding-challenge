@@ -17,12 +17,11 @@ class Person(Base):
 
 class ParentChild(Base):
     __tablename__ = 'parentchild'
-    __table_args__ = (CheckConstraint("parent <> child"), UniqueConstraint("parent", "child"))
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    parent = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"), primary_key=True)
-    child = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"), primary_key=True)
-    person = relationship("Persons", backref=backref("parentchild", cascade="all, delete-orphan", passive_deletes=True),)
-
+    __table_args__ = (CheckConstraint("parent_id <> child_id"), UniqueConstraint("parent_id", "child_id"))
+    parent_id = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"), primary_key=True)
+    child_id = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"), primary_key=True)
+    child = relationship("Person", foreign_keys=[child_id])
+    parent = relationship("Person", foreign_keys=[parent_id])
     
 
 
