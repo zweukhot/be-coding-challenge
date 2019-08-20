@@ -19,14 +19,14 @@ def get_parents(person_id):
 
 def get_cousins(person_id):
     grandpas = get_grandparents(person_id)
-    parents = {parent.id:parent
+    parents = {parent['id']:parent
                 for grandpa in grandpas 
-                for parent in get_children(grandpa.id)}
-    grandchildren = {granchild.id:grandchild
+                for parent in get_children(grandpa['id'])}
+    grandchildren = {grandchild['id']:grandchild
                      for parent in parents.values()
-                     for grandchild in fam_dm.get_children(parent.id)}
-    cousins = [grandchild for grandchild in grandchildren
-               if grandchild not in get_sibling(person_id)]
+                     for grandchild in get_children(parent['id'])}
+    cousins = [grandchild for grandchild in grandchildren.values()
+               if grandchild not in get_siblings(person_id)]
     return cousins
 
 
