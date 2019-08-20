@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, CheckConstraint
+from sqlalchemy import Column, String, Integer, CheckConstraint, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.schema import ForeignKey
 from sqlalchemy.orm import relationship, backref
@@ -17,7 +17,7 @@ class Person(Base):
 
 class ParentChild(Base):
     __tablename__ = 'parentchild'
-    __table_args__ = (CheckConstraint("parent <> child"),)
+    __table_args__ = (CheckConstraint("parent <> child"), UniqueConstraint("parent", "child"))
     id = Column(Integer, primary_key=True, autoincrement=True)
     parent = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"), primary_key=True)
     child = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"), primary_key=True)
