@@ -12,7 +12,7 @@ def health_check():
 
 @blueprint.route('/search_person/<last_name>/<first_name>', methods=['GET'])
 def search_person(last_name, first_name):
-    return jsonify(res.get_person(last_name, first_name))
+    return jsonify(res.get_person(first_name, last_name))
 
 
 @blueprint.route('/<person_id>/get_siblings', methods=['GET'])
