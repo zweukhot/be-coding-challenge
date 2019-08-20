@@ -4,7 +4,10 @@ def person_to_list(results):
     return [{"id": str(person.id),
             "first_name": person.first_name,
             "last_name": person.last_name,
-            "birth_date": person.birth_date}
+            "birth_date": person.birth_date,
+            "address": person.address,
+            "phone_number": person.phone_number,
+            "email": person.email}
             for person in results]
 
 
