@@ -7,6 +7,7 @@ def get_person(first_name, last_name):
             .query(Person)
             .filter(Person.last_name==last_name,
                     Person.first_name==first_name)
+            )
     return query.all()
 
 
