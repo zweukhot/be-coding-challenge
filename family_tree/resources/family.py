@@ -1,12 +1,15 @@
 import family_tree.datamodel.family as fam_dm
 
 def person_to_list(results):
-    return [{"id": person.id,
+    return [{"id": str(person.id),
             "first_name": person.first_name,
             "last_name": person.last_name,
             "birth_date": person.birth_date}
             for person in results]
 
+
+def filter_self(people, person_id):
+    return [person for person in people if person['id'] != person_id]
 
 def get_person(first_name, last_name):
     query_results = fam_dm.get_person(first_name, last_name)
@@ -27,7 +30,8 @@ def get_cousins(person_id):
                      for grandchild in get_children(parent['id'])}
     cousins = [grandchild for grandchild in grandchildren.values()
                if grandchild not in get_siblings(person_id)]
-    return cousins
+    
+    return filter_self(cousins, person_id)
 
 
 def get_grandparents(person_id):
@@ -45,7 +49,7 @@ def get_siblings(person_id):
     children = {child.id: child
                 for parent in parents
                 for child in fam_dm.get_children(parent.id)}
-    return person_to_list(children.values())
+    return filter_self(person_to_list(children.values()), person_id)
 
 
 def get_children(person_id):
