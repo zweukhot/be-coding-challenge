@@ -79,7 +79,7 @@ NOTE: all of this happens from inside the pipenv environment to make use of the 
 ### Time
 The coding time for the operations has been around 5 hours. However, the coding time of fighting the creation of the models has been a few hours more, especially when fighting the following:
 - Double foreign key from the same table (parent-child edge table)
-- Finding a way in python 3 to pass the session from the app to the blueprints (in the code base I am used to we use flask_sqlalchemy_scope which seems to have disappeared in version 2.3.2 of flask_sqlalchemy, leaving me quite lost there). I am painfully aware that I should be using a better context for that session, ideally a request one that closes after each request... lack of time and expertise on this area).
+- Finding a way in python 3 to pass the session from the app to the blueprints (in the code base I am used to we use flask_sqlalchemy_scope which seems to have disappeared in version 2.3.2 of flask_sqlalchemy, leaving me quite lost there). I am painfully aware that I should be using a better context for that session, lack of time and expertise on this area).
 - Trying to find a way to set the constraints in sqlalchemy to disallow permutations of the primary key (I haven't been able to resolve this, but if this was a real application, I would enforce that uniqueness on submission).
 
 
